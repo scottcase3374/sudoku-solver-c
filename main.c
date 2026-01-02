@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
                         processors[i](data, &coordinator);
                     clock_t end = clock();
 
-                    printf("Processing time (seconds): %f\n", (double)(end-begin)/ CLOCKS_PER_SEC);
+                    printf("Processing time (ms): %f\n", (double)(end-begin)/ CLOCKS_PER_SEC * 1000);
                     displayBoard(data, true);
                 }
             }

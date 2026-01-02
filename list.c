@@ -82,6 +82,7 @@ bool listIntRemove(struct List *head, int val)
         return false;
 
     struct List *it = head;
+    struct List *prev = NULL;
     bool contains = false;
     while (it != NULL)
     {
@@ -90,11 +91,14 @@ bool listIntRemove(struct List *head, int val)
             if (*(int *)it->val == val)
             {
                 contains = true;
+                prev->next = it->next;
                 free(it->val);
-                it->val = NULL;
+                free(it);
+
                 break;
             }
         }
+        prev = it;
         it = it->next;
     }
     return contains;
